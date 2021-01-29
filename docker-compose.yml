@@ -1,0 +1,10 @@
+version: '3.2'
+services:
+  squad:
+    image: "squadtopida/discord-squad-statusbot:latest"
+    container_name: discord-status-bot
+    environment:
+      - TOKEN=NjE5NjM2ODIzMjQ0OTMxMDcy.XXLIyw.fg3ETf2JKLVlhF6pY3pTJJJaFDY
+      - BM_ID=9853433
+      - SERVER_IP=213.202.230.204:27166
+      - STATUS_CMD=!server
