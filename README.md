@@ -6,4 +6,4 @@ Simple status bot for discord
 GPL 3. See LICENSE file.
 
 # Copyright
-(c) Copyright 2021 - Markus von Rüden - All rights reserved
+(c) Copyright 2021 - Squadtopia - All rights reserved
