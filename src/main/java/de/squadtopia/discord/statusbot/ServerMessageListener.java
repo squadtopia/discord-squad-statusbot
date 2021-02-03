@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 import java.time.Instant;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,7 +21,7 @@ public class ServerMessageListener extends ListenerAdapter {
     protected static final long DELAY_IN_MS = 60 * 1000;
 
     private static final Logger LOG = LoggerFactory.getLogger(ServerMessageListener.class);
-    private static final String BM_BANNER_TEMPLATE = "https://cdn.battlemetrics.com/b/horizontal500x80px/%s.png";
+    private static final String BM_BANNER_TEMPLATE = "https://cdn.battlemetrics.com/b/standardVertical/%s.png?foreground=%%23EEEEEE&linkColor=%%231185ec&lines=%%23333333&background=%%23222222&chart=players%%3ART&chartColor=%%233498db&showPlayers=&maxPlayersHeight=300&time=%d";
     private static final String DESCRIPTION_TEMPLATE = "Connect to server: steam://connect/%s\nDetails: https://www.battlemetrics.com/servers/squad/%s";
     private static final String REFRESH_UNICODE = "\uD83D\uDD04";
 
@@ -97,7 +98,8 @@ public class ServerMessageListener extends ListenerAdapter {
 
     private MessageEmbed createMessage() {
         return new EmbedBuilder()
-            .setImage(String.format(BM_BANNER_TEMPLATE, battleMetricsId))
+            .setThumbnail("https://squadtopia.de/img/SQT_Logo_small_7.png")
+            .setImage(String.format(BM_BANNER_TEMPLATE, battleMetricsId, new Date().getTime()))
             .setTitle("Server Status")
             .setTimestamp(Instant.now())
             .setDescription(String.format(DESCRIPTION_TEMPLATE, serverIp, battleMetricsId))
